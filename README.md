@@ -77,9 +77,10 @@ a.ratingAuthor
 b = Author.objects.get(id=2)
 b.update_rating()
 b.ratingAuthor
-Author.objects.order_by('-ratingAuthor')[:1]
+a = Author.objects.order_by('-ratingAuthor')[:1]
 for i in a:
 i.ratingAuthor
 i.authorUser.username
-Post.objects.all().order_by('-rating')[:1].values('dateCreation', 'author', 'rating', 'title')
+Post.objects.order_by('-rating')[:1].values('dateCreation', 'author', 'rating', 'title')
+Post.objects.get(id=1).preview()
 Comment.objects.all().values('dateCreation', 'commentUser', 'rating', 'text')
